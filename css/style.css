@@ -1,0 +1,91 @@
+:root {
+    --main-color: #1565C0;
+    --main-color-light: rgb(231, 227, 227);
+    --green-color: #1ED001;
+}
+body{
+    padding: 0;
+    margin: 0;
+} 
+/* navigation bar */
+.navbar{
+    position: sticky;
+    top: 0;
+    background: white;
+    padding: 5px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    z-index: 100;
+}
+.nav-container{
+    width: 98%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-left{
+    display: flex;
+    align-items: center;
+} 
+.app-logo img{
+    width:40px;
+    height:40px;
+    border-radius: 50%;
+}
+#search{
+    padding: 2px;
+    background: var(--main-color-light);
+    border: none;
+    outline: none;
+    margin-left: 10px;
+    width: 100%;
+    border-radius: 20px; 
+    
+}
+.nav-right{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+} 
+.user-pitcher {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.menu{
+    width: 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+} 
+.menu i {
+    color: black;
+}
+
+.search{
+    box-sizing: border-box;
+    display: flex;
+    margin-left: 15px;
+    background: var(--main-color-light);
+    padding: 4px;
+    border-radius: 20px; 
+}
+.search-icon i{
+    color: rgb(170, 169, 169);
+    margin-left: 5px;
+}
+.nav-right i{
+    margin-left: 20px;
+}
+.nav-right a{
+    text-decoration: none;
+    color: black;
+}
+.mgl {
+    margin-left: 1rem;
+}
+.active i{
+    color: var(--main-color);
+}
