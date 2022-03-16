@@ -1,0 +1,47 @@
+.container{
+    width: 40%;
+    margin: auto;
+    background: rgb(202, 201, 201);
+}
+/* .card{
+    width: 50%;
+    background: rgb(202, 201, 201);
+} */
+.card h2{
+    text-align: center;
+}
+.card-body{
+    width: 90%;
+    margin: auto;
+    
+    /* background: rgb(202, 178, 178); */
+}
+.card-body .user-infor{
+    display: flex;
+    align-items: center;
+}
+.card-body .user-picture{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.card-body .image-file{
+    width: 50%;
+    margin: auto;
+    background: rgb(173, 169, 169);
+}
+.card-body .input-caption{
+    margin-left: 10px;
+    width: 95%;
+    height: 5vh;
+    border-radius: 7px;
+    outline: none;
+    border: none;
+}
+.card-footer{
+    margin: auto;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
