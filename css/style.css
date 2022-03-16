@@ -1,30 +1,60 @@
-.container{
-    width: 40%;
+:root {
+    --main-color: #1565C0;
+    --main-color-light: rgb(231, 227, 227);
+    --green-color: #1ED001;
+}
+body{
+    padding: 0;
+    margin: 0;
+} 
+/* navigation bar */
+.navbar{
+    position: sticky;
+    top: 0;
+    background: white;
+    padding: 5px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    z-index: 100;
+}
+.nav-container{
+    width: 98%;
     margin: auto;
-    background: rgb(202, 201, 201);
-}
-/* .card{
-    width: 50%;
-    background: rgb(202, 201, 201);
-} */
-.card h2{
-    text-align: center;
-}
-.card-body{
-    width: 90%;
-    margin: auto;
-    
-    /* background: rgb(202, 178, 178); */
-}
-.card-body .user-infor{
     display: flex;
+    justify-content: space-between;
     align-items: center;
 }
-.card-body .user-picture{
+.nav-left{
+    display: flex;
+    align-items: center;
+} 
+.app-logo img{
+    width:40px;
+    height:40px;
+    border-radius: 50%;
+}
+#search{
+    padding: 2px;
+    background: var(--main-color-light);
+    border: none;
+    outline: none;
+    margin-left: 10px;
+    width: 100%;
+    border-radius: 20px; 
+    
+}
+.nav-right{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+} 
+.user-pitcher {
+
     width: 40px;
     height: 40px;
     border-radius: 50%;
 }
+
 .card-body .image-file{
     width: 50%;
     margin: auto;
@@ -44,4 +74,155 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.menu{
+    width: 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+} 
+.menu i {
+    color: black;
+}
+
+.search{
+    box-sizing: border-box;
+    display: flex;
+    margin-left: 15px;
+    background: var(--main-color-light);
+    padding: 4px;
+    border-radius: 20px; 
+}
+.search-icon i{
+    color: rgb(170, 169, 169);
+    margin-left: 5px;
+}
+.nav-right i{
+    margin-left: 20px;
+}
+.nav-right a{
+    text-decoration: none;
+    color: black;
+}
+.mgl {
+    margin-left: 1rem;
+}
+.active i{
+    color: var(--main-color);
+}
+
+.container{
+    width: 50%;
+    padding: 2rem;
+    margin: auto;
+}
+#addPost{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    align-items: center;
+    background: rgb(243, 239, 239);
+    border: none;
+    border-radius: 5px;
+}
+
+#addPost:hover{
+    cursor: pointer;
+    background: rgb(218, 216, 216);
+}
+
+.card{
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    width: 90%;
+    margin: auto;
+    padding: 1px;
+    margin-top: 1rem;
+    border-radius: 5px;
+    position: relative;
+    z-index: 5;
+}
+.card-header {
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+#card-post {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    margin: auto;
+    z-index: 10;
+    background-color: rgba(204, 201, 201, 0.726);
+    
+  }
+  
+.create-post {
+    width: 40%;
+    margin: auto;
+    background: white;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-top: 6rem;
+}
+.create-post h2{
+    text-align: center;
+}
+.create-post menu{
+    display: flex;
+    justify-content: space-evenly;
+}
+.create-post menu button{
+    border: none;
+    padding: 0.5rem 1.5rem;
+    color: white;
+    border-radius: 10px;
+    background: var(--main-color);
+}
+.create-post menu button:hover{
+    cursor: pointer;
+    transform: scale(0.9);
+}
+.text {
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-file {
+    width: 100%;
+    height: 45vh;
+    border-radius: 10px;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+.user-info{
+    display: flex;
+    width: 100%;
+}
+.user-info #description {
+    width: 90%;
+    padding: 10px;
+    margin-left: 10px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+.fa-picture-o:hover{
+ cursor: pointer;
 }
