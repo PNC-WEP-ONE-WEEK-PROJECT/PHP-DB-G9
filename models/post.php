@@ -8,7 +8,7 @@ $db = new PDO("mysql:host=localhost;dbname=facebook",'root','');
 function getPosts()
 {
     global $db;
-    $statement = $db->prepare("SELECT * FROM posts ORDER BY id;");
+    $statement = $db->prepare("SELECT * FROM posts ORDER BY postID desc");
     $statement->execute();
     return $statement->fetchAll();  
 }
@@ -19,7 +19,7 @@ function getPosts()
 function getPostById($id)
 {
     global $db;
-    $statement= $db->prepare("SELECT * FROM posts WHERE id= :id_post");
+    $statement= $db->prepare("SELECT * FROM posts WHERE postID= :id_post");
     $statement->execute([
         ":id_post" => $id
     ]);
@@ -34,7 +34,7 @@ function deletePost($id)
     global $db;
     $statement= $db->prepare("DELETE FROM posts WHERE postID= :id");
     $statement->execute([
-        ":id" => $id
+        ':id' => $id
     ]);
     return ($statement->rowCount()==1);
 }
@@ -44,8 +44,9 @@ function deletePost($id)
  */
 function updatePost($id, $content, $image)
 {
+    // echo ($content . $image); die;
     global $db;
-    $statement= $db->prepare("UPDATE posts set id=:id, content=:content, image=:img WHERE id=:id;");
+    $statement= $db->prepare("UPDATE posts set postID=:id, content=:content, image=:img WHERE postID=:id;");
     $statement->execute([
         ":id" => $id,
         ":content" => $content,
@@ -60,10 +61,10 @@ function updatePost($id, $content, $image)
 function createPost($content, $image)
 {
     global $db;
-    $statement= $db->prepare("INSERT into posts(content,image) values (:content,:img)");
+    $statement= $db->prepare("INSERT into posts(content,image) values (:content,:image)");
     $statement->execute([
-        ":content" => $content,
-        ":img" => $image
+        ':content' => $content,
+        ':image' => $image
     ]);
     return ($statement->rowCount()==1);
 }
