@@ -32,7 +32,7 @@ function getPostById($id)
 function deletePost($id)
 {
     global $db;
-    $statement= $db->prepare("DELETE FROM posts WHERE id= :id");
+    $statement= $db->prepare("DELETE FROM posts WHERE postID= :id");
     $statement->execute([
         ":id" => $id
     ]);
