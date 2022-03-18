@@ -58,9 +58,11 @@ require_once('models/post.php');
                 <div class="like"> <span></span> <i class="fa fa-thumbs-up" style="font-size:24px;"> </i> <span>Like</span></div>
                 <label class="comment" for="comments"><span></span> <i class="fa fa-commenting-o" style="font-size:24px"> </i><span>Comment</span></label>
             </div>
-            <div class="comment-text">
-                <input type="text-area" placeholder="Write a comments..." id="comments">
-            </div>
+            <form action="../controllers/create_comment_controller.php" method="post" class="comment-text">
+                <input type="text-area" placeholder="Write a comments..." id="comments" name="comments"> 
+                <button type="submit"  class="btn_comment"><i class="fa fa-paper-plane-o" style="font-size:24px; "></i></button>
+                <input type="hidden" name="postID" value="<?php echo $post['postID']?>">
+            </form>
         </div>
     </div>
 

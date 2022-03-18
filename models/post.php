@@ -56,7 +56,7 @@ function updatePost($id, $content, $image)
 }
 
 /**
- * Create a new item 
+ * Create a new post 
  */
 function createPost($content, $image)
 {

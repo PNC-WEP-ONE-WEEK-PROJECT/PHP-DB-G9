@@ -247,27 +247,28 @@ body{
     margin-bottom: 1rem;
     margin-top: 1rem;
     padding: 5px;
-    background: #eee;
+    background: rgb(255, 251, 251);
 }
 #comments{
     width: 100%;
     padding: 5px;
     outline: none;
     border: none;
-    background: #eee;
+    background: rgb(255, 251, 251);
 }
 .comment-text .send{
     border: none;
     cursor: pointer;
 }
-.fa-telegram-plane{
-    color: rgb(168, 167, 167);
-}
-.fa {
-    font-size: 40px;
-}
 
-
+.btn_comment{
+    float:right;
+    border:none;
+    background: none;
+}
+.btn_comment:hover{
+    cursor: pointer;
+}
 
 #card-post {
     position: fixed;
