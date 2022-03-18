@@ -19,26 +19,27 @@ require_once('models/post.php');
             <div class="image-file">
                 <label for="image"><i class="fa fa-picture-o" style="font-size:48px;color:#1ED001"></i></label>
                 <input type="file" name="file_image" style="display:none" id="image">
+                <input type="hidden" name="date" value="<?php date_default_timezone_set("Asia/Phnom_Penh"); echo date("l/ "). date(" M/ ").date(" Y,").date(" h:i:s a");?>">
             </div>
             <menu>
                 <button onclick="onCancel()" >Cancel</button>
-                <button type="submit">Post</button>
+                <button type="submit" name="submit">Post</button>
             </menu>
         </form>
     </div>
     <?php 
     $posts = getPosts();
     foreach($posts as $post):
-
+    
 
     ?>
     <div class="card">
         <div class="card-header">
             <div class="user-info">
                 <img src="../images/user.jpg" alt=""  class="user-pitcher mgl" id="user-picture">
-                <div class="u-in">
+                <div class="u-in mgl">
                     <p class="" id="name">Sophim Phath</p>
-                    <p class="time mgl" id="time"><?php echo $post['postDate'];?></p>
+                    <p class="time" id="time"><?php echo $post['postDate'];?></p>
                 </div>
             </div>
             <div class="dropdown">
@@ -54,10 +55,6 @@ require_once('models/post.php');
             <img src="../post_image/<?php echo $post['image']?>" alt="" width="100%">
         </div>
         <div class="card-footer">
-            <div class="number">
-                <div class="number-like">2.5K likes</div>
-                <div class="number-comment">1.5K comments</div>
-            </div>
             <div class="reaction">
                 <div class="like"><i class="fa fa-thumbs-up" style="font-size:24px;"> </i> <span>Like</span></div>
                 <label class="comment" for="comments"><i class="fa fa-commenting-o" style="font-size:24px"> </i><span>Comment</span></label>
@@ -76,6 +73,7 @@ require_once('models/post.php');
 <!-- javascript -->
 <script>
     const dom_card_post = document.getElementById("card-post");
+    const file = document.querySelector('.fa-picture-o');
 
     // HIDE / SHOW ---------------------------------------------------------
     function hide(element) {
@@ -91,6 +89,10 @@ require_once('models/post.php');
     }
     function onCancel(){
         hide(dom_card_post);
+    }
+
+    function getFile(element){
+        element.style.backgroundImage = "url('../images/logo.png')";
     }
 </script>
 

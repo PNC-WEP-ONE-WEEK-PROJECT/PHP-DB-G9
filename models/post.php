@@ -1,7 +1,5 @@
 <?php
-
-// database connection
-$db = new PDO("mysql:host=localhost;dbname=facebook",'root','');
+require_once('database.php');
 /**
  * Get all posts  
  */
@@ -44,7 +42,6 @@ function deletePost($id)
  */
 function updatePost($id, $content, $image)
 {
-    // echo ($content . $image); die;
     global $db;
     $statement= $db->prepare("UPDATE posts set postID=:id, content=:content, image=:img WHERE postID=:id;");
     $statement->execute([
@@ -58,13 +55,14 @@ function updatePost($id, $content, $image)
 /**
  * Create a new item 
  */
-function createPost($content, $image)
+function createPost($content, $image,$postDate)
 {
     global $db;
-    $statement= $db->prepare("INSERT into posts(content,image) values (:content,:image)");
+    $statement= $db->prepare("INSERT into posts(content,image,postDate) values (:content,:image,:post_date)");
     $statement->execute([
         ':content' => $content,
-        ':image' => $image
+        ':image' => $image,
+        ':post_date'=> $postDate
     ]);
     return ($statement->rowCount()==1);
 }
