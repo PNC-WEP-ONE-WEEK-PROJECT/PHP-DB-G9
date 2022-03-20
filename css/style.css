@@ -261,12 +261,15 @@ body{
     cursor: pointer;
 }
 
-.btn_comment{
+.btn_comment, .btn_like{
     float:right;
     border:none;
     background: none;
 }
 .btn_comment:hover{
+    cursor: pointer;
+}
+.btn_like:hover{
     cursor: pointer;
 }
 

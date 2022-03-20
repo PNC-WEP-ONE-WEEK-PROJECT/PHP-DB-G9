@@ -1,5 +1,7 @@
 <?php 
 require_once('models/post.php');
+require_once('models/like.php');
+
 ?>
 <div class="container">
     <!-- Your code here -->
@@ -55,7 +57,19 @@ require_once('models/post.php');
         </div>
         <div class="card-footer">
             <div class="reaction">
-                <div class="like"> <span></span> <i class="fa fa-thumbs-up" style="font-size:24px;"> </i> <span>Like</span></div>
+                <div class="like">
+                    <?php
+                        
+                        $likes=getLikeNumber($post['postID']);
+                        foreach($likes as $like):
+                    ?>
+                    <span><?= $like['likeNumber']?></span> 
+                    <?php endforeach ?>
+                    <form action="../controllers/insert_like_controller.php"  method="post">
+                        <input type="hidden" name="like" value="<?php echo $post['postID']?>">
+                        <button type="submit" class="btn_like"><i class="fa fa-thumbs-up" style="font-size:24px;"> </i><span>Like</span></button>
+                    </form>
+                </div>
                 <label class="comment" for="comments"><span></span> <i class="fa fa-commenting-o" style="font-size:24px"> </i><span>Comment</span></label>
             </div>
             <form action="../controllers/create_comment_controller.php" method="post" class="comment-text">
