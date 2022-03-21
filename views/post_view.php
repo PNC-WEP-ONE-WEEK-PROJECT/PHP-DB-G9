@@ -1,12 +1,15 @@
 <?php 
+
 require_once("../templates/header.php");
 require_once('../templates/nav.php');
 require_once('../models/post.php');
 require_once('../models/comment.php');
+require_once('../models/like.php');
+
 ?>
 <div class="container">
     <!-- Your code here -->
-    <a href="../views/create_post.php" style="text-decoration: none;"><button id="addPost">
+    <a href="create_post.php" style="text-decoration: none;"><button id="addPost">
         <img src="../images/user.jpg" alt="" class="user-pitcher mgl">
         <p>Add a post</p>
         <p></p>
@@ -47,13 +50,24 @@ require_once('../models/comment.php');
         ?>
         <div class="card-footer">
             <div class="number">
-                <p><?php echo 'likes'?></p>
+                <?php                       
+                    $likes=getLikeNumber($post['id']);
+                    foreach($likes as $like):
+                        
+                ?>
+                    <p><?php if ($like['likeNumber'] !=0){echo $like['likeNumber'];}?> likes</p>
+                <?php endforeach ?>
                 <p><?php if ($num_comt['number'] !=0){echo $num_comt['number'];}?> comments</p> 
             </div>
             <?php endforeach?>
             <div class="reaction">
-                <div class="like"> <span></span> <i class="fa fa-thumbs-up" style="font-size:24px;"> </i> <span>Like</span></div>
-                <label class="comment" for="<?=$post['id']?>"> <i class="fa fa-commenting-o" style="font-size:24px"> </i><span>Comment</span></label>
+                <div class="like">
+                    <form action="../controllers/insert_like_controller.php"  method="post">
+                        <input type="hidden" name="like" value="<?php echo $post['id']?>">
+                        <button type="submit" class="btn_like"><i class="fa fa-thumbs-up" style="font-size:24px;"> </i><span>Like</span></button>
+                    </form>
+                </div>
+                <label class="comment" for="comments"><span></span> <i class="fa fa-commenting-o" style="font-size:24px"> </i><span>Comment</span></label>
             </div>
             <?php 
 

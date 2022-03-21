@@ -19,7 +19,7 @@
                 <input type="hidden" name="date" value="<?php date_default_timezone_set("Asia/Phnom_Penh"); echo date("l/ "). date(" M/ ").date(" Y,").date(" h:i: a");?>">
             </div>
             <menu>
-                <a href="post_view.php"><button type="button">Cancel</button></a>
+                <a href="post_view.p"><button type="button">Cancel</button></a>
                 <button type="submit" name="submit">Post</button>
             </menu>
         </form>
