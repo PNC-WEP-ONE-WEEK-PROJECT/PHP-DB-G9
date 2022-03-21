@@ -1,7 +1,8 @@
 <?php
 
 // database connection
-require_once('../models/comment.php');
+require_once('database.php');
+
 /**
  * Get all posts  
  */
@@ -50,7 +51,7 @@ function countComment($post_id){
 function createComment($comment, $postID)
 {
     global $db;
-    $statement= $db->prepare("INSERT into comments(comment,postID) values (:comment,:postID)");
+    $statement  =$db->prepare("INSERT INTO comments(comment, postID) VALUES(:comment, :postID)");
     $statement->execute([
         ':comment' => $comment,
         ':postID' => $postID

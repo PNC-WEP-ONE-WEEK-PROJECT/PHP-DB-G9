@@ -1,4 +1,5 @@
 <?php 
+session_start();
 require_once('../templates/header.php');
 require_once('../templates/nav.php');
 ?>
@@ -29,7 +30,7 @@ require_once('../templates/nav.php');
                 <input type="file" name="file_image" style="display:none" id="image" onchange="loadFile(event)">
                 <input type="hidden" name="file" value="<?=$post['image']?>">
                 <label for="image"><i class="fa fa-picture-o" style="font-size:30px;color:#1ED001"></i></label>
-                <input type="hidden" name="date" value="<?php date_default_timezone_set("Asia/Phnom_Penh"); echo date("l/ "). date(" M/ ").date(" Y,").date(" h:i: a");?>">
+                <input type="hidden" name="date" value="<?php date_default_timezone_set("Asia/Phnom_Penh"); echo date("D/ "). date(" M/ ").date(" Y,").date(" h:i: A");?>">
             </div>
             <menu>
                 <a href="post_view.php"><button type="button">Cancel</button></a>

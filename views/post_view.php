@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 require_once("../templates/header.php");
 require_once('../templates/nav.php');
 require_once('../models/post.php');
@@ -25,9 +25,9 @@ require_once('../models/like.php');
     <div class="card">
         <div class="card-header">
             <div class="user-info">
-                <img src="../images/user.jpg" alt=""  class="user-pitcher mgl" id="user-picture">
+                <img src="" alt=""  class="user-pitcher mgl" id="user-picture">
                 <div class="u-in mgl">
-                    <p class="" id="name">Sophim Phath</p>
+                    <p class="" id="name"><?= $_SESSION['username']?></p>
                     <p class="time" id="time"><?php echo $post['postDate'];?></p>
                 </div>
             </div>
@@ -67,7 +67,7 @@ require_once('../models/like.php');
                         <button type="submit" class="btn_like"><i class="fa fa-thumbs-up" style="font-size:24px;"> </i><span>Like</span></button>
                     </form>
                 </div>
-                <label class="comment" for="comments"><span></span> <i class="fa fa-commenting-o" style="font-size:24px"> </i><span>Comment</span></label>
+                <label class="comment" for="<?=$post['id']?>"> <i class="fa fa-commenting-o" style="font-size:24px"> </i><span>Comment</span></label>
             </div>
             <?php 
 

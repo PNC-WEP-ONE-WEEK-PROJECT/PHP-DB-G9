@@ -1,5 +1,5 @@
 <?php
-require_once('account/register.php');
+require_once('views/register_view.php');
 
 
 

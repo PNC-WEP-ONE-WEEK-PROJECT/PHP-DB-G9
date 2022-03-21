@@ -16,7 +16,7 @@
             <div class="chose">
                 <input type="file" name="file_image" style="display:none" id="image" onchange="loadFile(event)">
                 <label for="image"><i class="fa fa-picture-o" style="font-size:30px;color:#1ED001"></i></label>
-                <input type="hidden" name="date" value="<?php date_default_timezone_set("Asia/Phnom_Penh"); echo date("l/ "). date(" M/ ").date(" Y,").date(" h:i: a");?>">
+                <input type="hidden" name="date" value="<?php date_default_timezone_set("Asia/Phnom_Penh"); echo date("D  "). date(" M  ").date(" Y,").date(" h: i A");?>">
             </div>
             <menu>
                 <a href="post_view.p"><button type="button">Cancel</button></a>

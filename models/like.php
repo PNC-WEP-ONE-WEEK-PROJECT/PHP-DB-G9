@@ -1,6 +1,6 @@
 <?php
 // database connection
-$db = new PDO("mysql:host=localhost;dbname=facebook",'root','');
+require_once('database.php');
 
 /**
  * Get a single like
