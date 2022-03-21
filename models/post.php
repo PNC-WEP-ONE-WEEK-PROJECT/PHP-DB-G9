@@ -6,7 +6,7 @@ require_once('database.php');
 function getPosts()
 {
     global $db;
-    $statement = $db->prepare("SELECT * FROM posts ORDER BY postID desc");
+    $statement = $db->prepare("SELECT * FROM posts ORDER BY id desc");
     $statement->execute();
     return $statement->fetchAll();  
 }
@@ -17,7 +17,7 @@ function getPosts()
 function getPostById($id)
 {
     global $db;
-    $statement= $db->prepare("SELECT * FROM posts WHERE postID= :id_post");
+    $statement= $db->prepare("SELECT * FROM posts WHERE id= :id_post");
     $statement->execute([
         ":id_post" => $id
     ]);
@@ -30,7 +30,7 @@ function getPostById($id)
 function deletePost($id)
 {
     global $db;
-    $statement= $db->prepare("DELETE FROM posts WHERE postID= :id");
+    $statement= $db->prepare("DELETE FROM posts WHERE id= :id");
     $statement->execute([
         ':id' => $id
     ]);
@@ -40,14 +40,15 @@ function deletePost($id)
 /**
  * Update a post given id and attibutes
  */
-function updatePost($id, $content, $image)
+function updatePost($id,$content, $image, $postDate)
 {
     global $db;
-    $statement= $db->prepare("UPDATE posts set postID=:id, content=:content, image=:img WHERE postID=:id;");
+    $statement= $db->prepare("UPDATE posts set content=:content, image=:img, postDate=:post_date WHERE id=:id;");
     $statement->execute([
-        ":id" => $id,
+        ":id"=>$id,
         ":content" => $content,
-        ":img" => $image
+        ":img" => $image,
+        ":post_date"=>$postDate
     ]);
     return ($statement->rowCount()==1);
 }
@@ -65,4 +66,14 @@ function createPost($content, $image,$postDate)
         ':post_date'=> $postDate
     ]);
     return ($statement->rowCount()==1);
+}
+
+function getUserName($id)
+{
+    global $db;
+    $statement= $db->prepare("SELECT username FROM login WHERE loginID= :id");
+    $statement->execute([
+        ":id" => $id
+    ]);
+    return $statement->fetch();
 }

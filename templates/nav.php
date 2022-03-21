@@ -14,14 +14,15 @@
                 $page = $_GET['page'];
             }
             ?>
+
             <div class="menu">
-                <a href="../index.php?page=home" <?php if($page == "home") { ?> class="active" <?php } ?>><i class="material-icons" style="font-size:24px">home</i></a>
-                <a href="../index.php?page=contact" <?php if($page == "contact") { ?> class="active" <?php } ?>><i class="fa fa-users" style="font-size:18px"></i></a>
+                <a href="../views/post_view.php?page=home" <?php if($page == "home") { ?> class="active" <?php } ?>><i class="material-icons" style="font-size:24px">home</i></a>
+                <a href="../contact.php?page=contact" <?php if($page == "contact") { ?> class="active" <?php } ?>><i class="fa fa-users" style="font-size:18px"></i></a>
             </div>
             <div class="nav-right">
-                <a href=""><img src="../images/user.jpg" alt="" class="user-pitcher"></a>
-                <a href=""><div class="user-name mgl">Sophim Phath</div></a>
-                <a href=""><i class="material-icons">exit_to_app</i></a>
+                <a href="../views/profile.php"><img src="../images/user.jpg" alt="" class="user-pitcher"></a>
+                <a href="../views/profile.php"><div class="user-name mgl"></div></a>
+                <a href="../account/register.php"><i class="material-icons">exit_to_app</i></a>
             </div>
         </div>
     </div>

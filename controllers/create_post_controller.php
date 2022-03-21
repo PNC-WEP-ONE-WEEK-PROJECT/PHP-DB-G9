@@ -9,7 +9,6 @@ if (!empty($_POST['content']) or !empty($_FILES['file_name']['name'])){
         $target = "../post_image/" . $image;
         move_uploaded_file($folder,$target);
         createPost($content, $image,$postDate);
+        header('location: ../views/post_view.php');
     }
 }
-
-header('location: ../index.php');

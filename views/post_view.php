@@ -1,34 +1,20 @@
 <?php 
-require_once('models/post.php');
+require_once("../templates/header.php");
+require_once('../templates/nav.php');
+require_once('../models/post.php');
+require_once('../models/comment.php');
 ?>
 <div class="container">
     <!-- Your code here -->
-    <button id="addPost" onclick="onAddPost()">
+    <a href="../views/create_post.php" style="text-decoration: none;"><button id="addPost">
         <img src="../images/user.jpg" alt="" class="user-pitcher mgl">
         <p>Add a post</p>
         <p></p>
-    </button>
+    </button></a>
 
-    <div id="card-post" style="display: none">
-        <form action="../controllers/create_post_controller.php" method="post" class="create-post" enctype="multipart/form-data">
-            <h2>Create new post</h2>
-            <section class="user-info">
-                <label><img src="../images/user.jpg" alt="" class="user-pitcher"></label>
-                <input name="content"  id="description" type="text" placeholder="What's you mind ?">
-            </section>
-            <div class="image-file">
-                <label for="image"><i class="fa fa-picture-o" style="font-size:48px;color:#1ED001"></i></label>
-                <input type="file" name="file_image" style="display:none" id="image">
-                <input type="hidden" name="date" value="<?php date_default_timezone_set("Asia/Phnom_Penh"); echo date("l/ "). date(" M/ ").date(" Y,").date(" h:i:s a");?>">
-            </div>
-            <menu>
-                <button onclick="onCancel()" >Cancel</button>
-                <button type="submit" name="submit">Post</button>
-            </menu>
-        </form>
-    </div>
     <?php 
     $posts = getPosts();
+    
     foreach($posts as $post):
     
 
@@ -45,8 +31,8 @@ require_once('models/post.php');
             <div class="dropdown">
                 <div class="dropbtn"><img src="../images/option.png" alt="" width="30px" height="30px" class="option"></div>
                 <div class="dropdown-content">
-                    <a href="../views/edit_view.php?id=<?php echo $post['postID']?>">edit</a>
-                    <a href="../controllers/delete_post.php?id=<?php echo $post['postID']?>">delete</a>
+                    <a href="../views/edit_view.php?id=<?php echo $post['id']?>">edit</a>
+                    <a href="../controllers/delete_post.php?id=<?php echo $post['id']?>">delete</a>
                 </div>
             </div> 
         </div>
@@ -54,14 +40,37 @@ require_once('models/post.php');
         <div class="card-body">
             <img src="../post_image/<?php echo $post['image']?>" alt="" width="100%">
         </div>
+        <?php 
+            $post_id = $post['id'];
+            $numbers = countComment($post_id);
+            foreach($numbers as $num_comt):
+        ?>
         <div class="card-footer">
+            <div class="number">
+                <p><?php echo 'likes'?></p>
+                <p><?php if ($num_comt['number'] !=0){echo $num_comt['number'];}?> comments</p> 
+            </div>
+            <?php endforeach?>
             <div class="reaction">
-                <div class="like"><i class="fa fa-thumbs-up" style="font-size:24px;"> </i> <span>Like</span></div>
-                <label class="comment" for="comments"><i class="fa fa-commenting-o" style="font-size:24px"> </i><span>Comment</span></label>
+                <div class="like"> <span></span> <i class="fa fa-thumbs-up" style="font-size:24px;"> </i> <span>Like</span></div>
+                <label class="comment" for="<?=$post['id']?>"> <i class="fa fa-commenting-o" style="font-size:24px"> </i><span>Comment</span></label>
             </div>
-            <div class="comment-text">
-                <input type="text-area" placeholder="Write a comments..." id="comments">
-            </div>
+            <?php 
+
+                $post_id = $post['id'];
+                $comments = getCommentByPost($post_id);
+                foreach($comments as $comment):
+                    ?>
+                <div class="user-comment">
+                    <img src="../images/nga.jpg" alt="loading" class="user-pitcher mgl">
+                    <span class="mgl"><?= $comment['comment'];?> </span>
+                </div>
+            <?php endforeach?>
+            <form action="../controllers/create_comment_controller.php" method="post" class="comment-text">
+                <input type="text-area" placeholder="Write a comments..." id="<?=$post['id']?>" name="comments" class="comments"> 
+                <button type="submit"  class="btn_comment"><i class="fa fa-paper-plane-o" style="font-size:24px; "></i></button>
+                <input type="hidden" name="postID" value="<?php echo $post['id']?>">
+            </form>
         </div>
     </div>
 
@@ -95,4 +104,4 @@ require_once('models/post.php');
         element.style.backgroundImage = "url('../images/logo.png')";
     }
 </script>
-
+<?php require_once("../templates/footer.php");?>
