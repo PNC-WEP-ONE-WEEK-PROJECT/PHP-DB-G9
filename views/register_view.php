@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Signup</title>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
@@ -63,7 +63,7 @@
                                 <option value="12">12</option>
                             </select>
                             <label class="form-label" for="form3Example4">Code</label>
-                            <input type="text" id="form3Example4" name="phone" class="form-control form-control-lg mt-2" placeholder="Enter your phone number" />
+                            <input type="username" id="form3Example4" name="phone" class="form-control form-control-lg mt-2" placeholder="Enter your phone number" />
                         </div>  
                         <!-- Password input -->
                         <div class="form-outline mb-3 col-md-12">
@@ -81,28 +81,5 @@
             </div>
         </div>
     </section>
-    <script>
-        function validation(){
-            var id=document.f1.username.value;
-            var ps=document.f1.pass.value;
-            var email=document.f1.email.value;
-            var gd=document.f1.gender.value;
-            var phone=document.f1.phone.value;
-            var code=document.f1.phoneCode.value;
-            if (id.length=="" && ps.length=="" && email.length=="" && gd.length=="" && phone.length==""  && code.length==""){
-                alert("User Name and Password fields are empty");
-                return false;
-            }else{
-                if(id.length==""){
-                    alert("User Name is empty");
-                    return false;
-                }
-                if(ps.length==""){
-                    alert("Password is empty");
-                    return false;
-                }
-            }
-        }
-    </script>
 </body>
 </html>

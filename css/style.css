@@ -362,6 +362,11 @@ body{
     margin-bottom: 10px;
 }
 
+.cmt{
+    background: rgb(230, 228, 228);
+    padding: 10px 12px ;
+    border-radius: 7px;
+}
 
 /* account */
 

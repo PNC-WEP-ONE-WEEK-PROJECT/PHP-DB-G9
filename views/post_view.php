@@ -25,7 +25,7 @@ require_once('../models/like.php');
     <div class="card">
         <div class="card-header">
             <div class="user-info">
-                <img src="" alt=""  class="user-pitcher mgl" id="user-picture">
+                <img src="../images/user.jpg" alt=""  class="user-pitcher mgl" id="user-picture">
                 <div class="u-in mgl">
                     <p class="" id="name"><?= $_SESSION['username']?></p>
                     <p class="time" id="time"><?php echo $post['postDate'];?></p>
@@ -77,7 +77,7 @@ require_once('../models/like.php');
                     ?>
                 <div class="user-comment">
                     <img src="../images/nga.jpg" alt="loading" class="user-pitcher mgl">
-                    <span class="mgl"><?= $comment['comment'];?> </span>
+                    <span class="mgl cmt"><?= $comment['comment'];?> </span>
                 </div>
             <?php endforeach?>
             <form action="../controllers/create_comment_controller.php" method="post" class="comment-text">
@@ -93,29 +93,4 @@ require_once('../models/like.php');
     ?>
 </div>
 
-<!-- javascript -->
-<script>
-    const dom_card_post = document.getElementById("card-post");
-    const file = document.querySelector('.fa-picture-o');
-
-    // HIDE / SHOW ---------------------------------------------------------
-    function hide(element) {
-        element.style.display = "none";
-    }
-    
-    function show(element) {
-        element.style.display = "block";
-    }
-
-    function onAddPost(){
-        show(dom_card_post);
-    }
-    function onCancel(){
-        hide(dom_card_post);
-    }
-
-    function getFile(element){
-        element.style.backgroundImage = "url('../images/logo.png')";
-    }
-</script>
 <?php require_once("../templates/footer.php");?>

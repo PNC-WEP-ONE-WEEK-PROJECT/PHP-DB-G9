@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="shortcut icon" href="../images/logo.png" type="image/x-icon">
-    <script src="../views/post.js"></script>
 </head>
 <body>
 

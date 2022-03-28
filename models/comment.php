@@ -4,7 +4,7 @@
 require_once('database.php');
 
 /**
- * Get all posts  
+ * Get all comments  
  */
 function getComments()
 {
@@ -15,7 +15,7 @@ function getComments()
 }
 
 /**
- * Get a single post
+ * Get a single comment
 */
 function getCommentById($id)
 {
@@ -37,7 +37,7 @@ function getCommentByPost($post_id)
 }
 
 /**
- * Create a new comment 
+ * count comment 
  */
 
 function countComment($post_id){
@@ -55,37 +55,6 @@ function createComment($comment, $postID)
     $statement->execute([
         ':comment' => $comment,
         ':postID' => $postID
-    ]);
-    return ($statement->rowCount()==1);
-}
-
-
-
-/**
- * Remove post related to given post id
- */
-function deleteComment($id)
-{
-    global $db;
-    $statement= $db->prepare("DELETE FROM comments WHERE commentID= :id");
-    $statement->execute([
-        ':id' => $id
-    ]);
-    return ($statement->rowCount()==1);
-}
-
-/**
- * Update a post given id and attibutes
- */
-function updateComment($id, $comment, $postID)
-{
-    // echo ($content . $image); die;
-    global $db;
-    $statement= $db->prepare("UPDATE comments set postID=:id, content=:content, postID=:postID WHERE commentID=:id;");
-    $statement->execute([
-        ":id" => $id,
-        ":comment" => $comment,
-        ":postID" => $postID
     ]);
     return ($statement->rowCount()==1);
 }

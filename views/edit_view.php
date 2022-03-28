@@ -13,7 +13,7 @@ require_once('../templates/nav.php');
     <?php require_once('../templates/header.php')?>
 <div id="card-post" style="display: block">
         <form action="../controllers/edit_post_controller.php" method="post" class="create-post" enctype="multipart/form-data">
-            <h2>Create new post</h2>
+            <h2>Edit your post</h2>
             <section class="user-info">
                 <label><img src="../images/user.jpg" alt="" class="user-pitcher"></label>
                 <input name="content"  id="description" type="text" placeholder="What's you mind ?" value="<?= $post['content']?>">

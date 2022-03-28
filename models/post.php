@@ -54,7 +54,7 @@ function updatePost($id,$content, $image, $postDate)
 }
 
 /**
- * Create a new item 
+ * Create a new post 
  */
 function createPost($content, $image,$postDate)
 {
@@ -68,12 +68,3 @@ function createPost($content, $image,$postDate)
     return ($statement->rowCount()==1);
 }
 
-function getUserName($id)
-{
-    global $db;
-    $statement= $db->prepare("SELECT username FROM login WHERE loginID= :id");
-    $statement->execute([
-        ":id" => $id
-    ]);
-    return $statement->fetch();
-}
